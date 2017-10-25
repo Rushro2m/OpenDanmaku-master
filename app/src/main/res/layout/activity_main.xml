@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <!--start_Y_offset:第一条播放航道距离弹幕View上边缘的偏移量，单位为百分比，以弹幕View高度为标准
+            end_Y_offset:最后一条航道距离弹幕View上边缘的偏移量，单位为百分比
+            max_row:设置最多多少条弹幕航道
+            max_running_per_row:设置每条弹幕航道最多同时有多少弹幕
+            pic_interval:每隔多少S读取一条弹幕来播放
+            show_debug:是否显示航道线以及播放帧率，主要用于调试
+            -->
+        <com.opendanmaku.DanmakuView
+            android:id="@+id/danmakuView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:start_Y_offset="0.2"
+            app:end_Y_offset="0.8"
+            app:max_row="20"
+            app:max_running_per_row="30"
+            app:pick_interval="100"
+            app:show_debug="false"
+            />
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/hide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:text="@string/hide" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <EditText
+            android:id="@+id/text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:hint="@string/text_hint" />
+
+        <Button
+            android:id="@+id/send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/send" />
+
+    </LinearLayout>
+</LinearLayout>
